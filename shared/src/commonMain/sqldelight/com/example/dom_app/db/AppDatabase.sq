@@ -1,0 +1,17 @@
+CREATE TABLE PostEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    username TEXT NOT NULL,
+    content TEXT NOT NULL,
+    timestamp TEXT NOT NULL,
+    likes INTEGER NOT NULL DEFAULT 0
+);
+
+selectAllPosts:
+SELECT * FROM PostEntity ORDER BY id DESC;
+
+insertPost:
+INSERT OR REPLACE INTO PostEntity(id, username, content, timestamp, likes)
+VALUES (?, ?, ?, ?, ?);
+
+deleteAllPosts:
+DELETE FROM PostEntity;
